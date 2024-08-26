@@ -105,6 +105,11 @@ git push origin feature/your-feature
 
 5. Create a Pull Request: Go to the repository on GitHub and create a new Pull Request.
 
-## License
+## Meta
 
-Distributed under the MIT License. See LICENSE for more information.
+Rajvirsinh Jadeja – rjs.jadeja@gmail.com
+
+Distributed under the MIT license. See `LICENSE` for more information.
+
+[https://github.com/RajvirsinhJadeja/](https://github.com/RajvirsinhJadeja)
+
