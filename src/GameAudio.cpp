@@ -1,6 +1,6 @@
-#include "GameAudio.hpp"
-
 #include <SFML/Audio.hpp>
+
+#include "GameAudio.hpp"
 
 GameAudio::GameAudio()
 {

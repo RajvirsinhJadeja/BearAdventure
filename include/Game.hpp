@@ -77,4 +77,4 @@ class Game
 		void displayGameOver();
 };
 
-#endif GAME_HPP
+#endif

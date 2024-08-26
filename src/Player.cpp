@@ -1,6 +1,7 @@
-#include "Player.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+
+#include "Player.hpp"
 
 Player::Player() : cycle(0), action(0), isJumping(false), jumpSpeed(0.0f)
 {

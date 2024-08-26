@@ -1,7 +1,7 @@
-#include "Collision.hpp"
-
 #include <SFML/Graphics.hpp>
 #include <vector>
+
+#include "Collision.hpp"
 
 std::vector<std::vector<bool>> Collision::getPixelMask(const sf::Sprite& sprite)
 {

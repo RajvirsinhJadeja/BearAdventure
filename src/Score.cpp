@@ -1,8 +1,8 @@
-#include "Score.hpp"
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <iostream>
 
+#include "Score.hpp"
 
 Score::Score() : score(0) 
 {

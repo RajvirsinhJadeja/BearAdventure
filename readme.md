@@ -6,12 +6,15 @@ Bear Adventure is a C++ project that leverages the SFML library to create platfo
 
 
 ## Table of Contents
+- [Requirements](#Requirements)
 - [Building the Project](#building-the-project)
 - [Running the Game](#running-the-game)
-- [Usage Example](#usage-example)
-- [Development Setup](#development-setup)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Requirements
+
+1. CMake: Version 3.10 or higher.
 
 ## Building the Project
 To build and run the game, follow these steps:
@@ -28,56 +31,46 @@ To build and run the game, follow these steps:
     cd BearAdventure
     ```
 
-3. Create a build directory and navigate into it:
+3. If running on linux do the following, else ignore:
+
+   ```
+   ./install_dependencies.sh
+   ```
+
+4. Create a build directory and navigate into it:
 
     ```
     mkdir build
     cd build
     ```
 
-4. Run CMake to configure the project:
+5. Run CMake to configure the project, please note that the configuration process may take some time, particularly on macOS:
 
     ```
     cmake ..
     ```
 
-5. Build the project in Release mode:
+6. Build the project, please note that the build process may take some time, particularly on macOS:
 
     ```
-    cmake --build . --config release
+    cmake --build .
     ```
 
 ## Running the Game
-1. Navigate to the build directory where the executable is located. This is typically in a subdirectory like `Release`:
+1. Windows Users: Navigate to the Debug directory and execute the game:
 
     ```
-    cd Release
+    cd Debug
+    BearAdventure
     ```
 
-2. Run the game executable:
+2. Linux or Macos: Run the game executable:
 
     ```
-    BearAdventure.exe
+    ./BearAdventure
     ```
     
-3. Press either up arrow or down arrow to start playing
-
-## Usage Example
-There are no command-line arguments or configurations required to run the game. Simply build the project and execute the `BearAdventure.exe` file from the `Release` directory.
-
-## Development Setup
-For development purposes, ensure you have the following:
-
-- **CMake**: Required to build the project.
-- **SFML**: Make sure the SFML-2.6.1 library is in the correct directory as specified in `CMakeLists.txt`.
-
-1. Install dependencies (if not already installed):
-
-```
-sudo apt-get install cmake
-```
-
-2. Clone the repository and build the project (as shown in the Building the Project section).
+3. Start Playing: Press the up or down arrow key to begin the game.
 
 ## Contributing
 

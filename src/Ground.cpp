@@ -1,9 +1,10 @@
-#include "Ground.hpp"
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <vector>
 #include <cmath>
 #include <iostream>
+
+#include "Ground.hpp"
 
 Ground::Ground() : tileWidth(32.0f * 3.0f), speed(-0.1f), specialTile(0)
 {

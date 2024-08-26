@@ -1,8 +1,9 @@
-#include "Obstacle.hpp"
 #include <SFML/Graphics.hpp>
 #include <queue>
 #include <cmath>
 #include <iostream>
+
+#include "Obstacle.hpp"
 
 Obstacle::Obstacle() 
 {

@@ -1,38 +1,49 @@
 cmake_minimum_required(VERSION 3.10)
 project(BearAdventure)
 
+include(FetchContent)
+
+FetchContent_Declare(
+    SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 2.6.x
+)
+FetchContent_MakeAvailable(SFML)
+
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(SFML_DIR "${CMAKE_SOURCE_DIR}/SFML-2.6.1/lib/cmake/SFML")
-
-find_package(SFML 2.6 REQUIRED COMPONENTS graphics window system audio)
-
-include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/SFML-2.6.1/include)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
 
 file(GLOB SOURCES "src/*.cpp")
 
 add_executable(BearAdventure ${SOURCES})
 
-target_link_libraries(BearAdventure sfml-graphics sfml-window sfml-system sfml-audio)
+target_include_directories(BearAdventure PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+if(UNIX AND NOT APPLE)
+    find_package(X11 REQUIRED)
+    target_link_libraries(BearAdventure sfml-graphics sfml-window sfml-system sfml-audio X11)
+else()
+    target_link_libraries(BearAdventure sfml-graphics sfml-window sfml-system sfml-audio)
+endif()
 
-add_custom_command(TARGET BearAdventure POST_BUILD
+set(RESOURCES_DIR "${PROJECT_SOURCE_DIR}/resources")
+
+add_custom_command(
+    TARGET BearAdventure POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/resources $<TARGET_FILE_DIR:BearAdventure>/resources
+    "${RESOURCES_DIR}" $<TARGET_FILE_DIR:BearAdventure>/resources
 )
 
-if (WIN32)
-    set(SFML_BIN_DIR "${CMAKE_SOURCE_DIR}/SFML-2.6.1/bin")
-    add_custom_command(TARGET BearAdventure POST_BUILD
+if(WIN32)
+    add_custom_command(
+        TARGET BearAdventure POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-	${SFML_BIN_DIR}/openal32.dll
-        ${SFML_BIN_DIR}/sfml-audio-2.dll
-        ${SFML_BIN_DIR}/sfml-graphics-2.dll
-        ${SFML_BIN_DIR}/sfml-window-2.dll
-        ${SFML_BIN_DIR}/sfml-system-2.dll
-        $<TARGET_FILE_DIR:BearAdventure>
+        $<TARGET_RUNTIME_DLLS:BearAdventure> $<TARGET_FILE_DIR:BearAdventure>
+        COMMAND_EXPAND_LISTS
     )
 endif()
+
