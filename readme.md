@@ -25,9 +25,10 @@ To build and run the game, follow these steps:
     cd BearAdventure
     ```
 
-3. Navigate into build:
+3. Create a build directory and navigate into it:
 
     ```
+    mkdir build
     cd build
     ```
 
