@@ -2,6 +2,9 @@
 
 Bear Adventure is a C++ project that leverages the SFML library to create platformer game. In this game, players must overcome obstacles and try to achieve the hightest score they can. The project demonstrates proficiency in C++, algorithms and usage of libraries to achieve goals.
 
+![image](https://github.com/user-attachments/assets/b624940a-8622-43f8-a7f1-b240f9fdc2ac)
+
+
 ## Table of Contents
 - [Building the Project](#building-the-project)
 - [Running the Game](#running-the-game)
@@ -56,6 +59,8 @@ To build and run the game, follow these steps:
     ```
     BearAdventure.exe
     ```
+    
+3. Press either up arrow or down arrow to start playing
 
 ## Usage Example
 There are no command-line arguments or configurations required to run the game. Simply build the project and execute the `BearAdventure.exe` file from the `Release` directory.
