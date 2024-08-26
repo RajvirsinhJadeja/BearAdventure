@@ -34,6 +34,7 @@ To build and run the game, follow these steps:
 3. If running on linux do the following, else ignore:
 
    ```
+   chmod +x install_dependencies.sh
    ./install_dependencies.sh
    ```
 
